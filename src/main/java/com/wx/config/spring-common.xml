@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"  
+       xmlns:mvc="http://www.springframework.org/schema/mvc"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+">
+    
+      <!-- 配置数据源 -->  
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://120.24.58.237/HealthyCorporation"></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="xDPgrPTuZ65D"></property>  
+    </bean>  
+    
+    <!-- 配置SessionFactory -->  
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>  
+            </props>  
+        </property>  
+        <property name="annotatedClasses">  
+            <list>  
+                <value>com.wx.entity.Coacher</value>
+                <value>com.wx.entity.Customer</value>
+                <value>com.wx.entity.Sign</value>
+                <value>com.wx.entity.TrainingClass</value>
+                <value>com.wx.entity.RegisterClass</value> 
+                <value>com.wx.entity.SalesRecord</value>
+                <value>com.wx.entity.CustomerGroup</value>     
+            </list>  
+        </property>  
+    </bean>
+    
+     <bean id="coacherDAO" class="com.wx.dao.impl.CoacherDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <bean id="customerGroupDAO" class="com.wx.dao.impl.CustomerGroupDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+      <bean id="customerDAO" class="com.wx.dao.impl.CustomerDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>   
+  
+    <bean id="signDAO" class="com.wx.dao.impl.SignDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <bean id="trainingClassDAO" class="com.wx.dao.impl.TrainingClassDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <bean id="registerClassDAO" class="com.wx.dao.impl.RegisterClassDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <bean id="salesRecordDAO" class="com.wx.dao.impl.SalesRecordDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
+    <bean id="classServiceBase" class="com.wx.service.impl.ClassServiceImpl">  
+        <property name="coachDAO" ref="coacherDAO"></property>
+        <property name="customerDAO" ref="customerDAO"></property>
+        <property name="signDAO" ref="signDAO"></property> 
+        <property name="trainingClassDAO" ref="trainingClassDAO"></property> 
+        <property name="registerClassDAO" ref="registerClassDAO"></property>
+        <property name="salesRecordDAO" ref="salesRecordDAO"></property>
+        <property name="customerGroupDAO" ref="customerGroupDAO"></property>
+    </bean>
+    
+    <bean id="classService" parent="transactionProxy">  
+        <property name="target" ref="classServiceBase"></property>
+    </bean>
+    
+      <!-- 配置一个事务管理器 -->  
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
+        <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>  
+      
+    <!-- 配置事务，使用代理的方式 -->  
+    <bean id="transactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">    
+        <property name="transactionManager" ref="transactionManager"></property>    
+        <property name="transactionAttributes">    
+            <props>    
+                <prop key="add*">PROPAGATION_REQUIRED,-Exception</prop> 
+                <prop key="register*">PROPAGATION_REQUIRED,-Exception</prop>    
+                <prop key="new*">PROPAGATION_REQUIRED,-Exception</prop> 
+                <prop key="modify*">PROPAGATION_REQUIRED,-myException</prop>    
+                <prop key="del*">PROPAGATION_REQUIRED</prop>    
+                <prop key="*">PROPAGATION_REQUIRED</prop>    
+            </props>    
+        </property>    
+    </bean>
+</beans>
