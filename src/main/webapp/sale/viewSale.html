@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>赫尔斯训练管理系统</title>
+
+		
+		<!-- link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" /-->
+		<!--script src="http://g.alicdn.com/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+		<script src="http://g.alicdn.com/tb/kimi/0.0.233/kimi.js"></script>
+		<link rel="stylesheet" href="http://g.alicdn.com/vip/login/0.5.23/css/mlogin.css">
+		 <script src="http://g.alicdn.com/vip/login/0.5.23/js/login/mlogin.js"></script -->
+		
+		 <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.js"></script>
+		
+		  <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		 <script type="text/javascript" src="../../dist/js/jquery.mmenu.all.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="../../dist/css/jquery.mmenu.all.css" />
+		
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+		<link type="text/css" rel="stylesheet" href="../css/demo.css" />
+		
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+		extensions 	: [  "pageshadow", "theme-dark"],
+	
+		dividers		: {
+			add				: true,
+			addTo			: "[id*='contacts-']",
+			fixed			: true
+		},
+		searchfield		: {
+			resultsPanel	: true
+		},
+		sectionIndexer	: {
+			add				: true,
+			addTo			: "[id*='contacts-']"
+		},
+		navbar			: {
+			title : ""
+		},
+		navbars		: [{
+			"position": "top",
+			 content : ["searchfield"]
+		},
+		{
+               "position": "top"
+        },
+		{
+               "position": "bottom",
+               "content": [
+                  "<a class='fa fa-envelope' href='#/'></a>",
+                  "<a class='fa fa-twitter' href='#/'></a>",
+                  "<a class='fa fa-facebook' href='#/'></a>"
+               ]
+         }
+		]
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							alert( "Thank you for clicking, but that's a demo link." );
+							return false;
+						}
+					);
+			});
+		</script>
+		 
+		<style type="text/css">
+			.mm-menu li.img:after
+			{
+				left: 75px !important;
+			}
+			.mm-menu li.img a
+			{
+				font-size: 16px;
+			}
+			.mm-menu li.img a img
+			{
+				float: left;
+				margin: -5px 10px -5px -5px;
+				border-radius: 100px;
+			}
+			.mm-menu li.img a small
+			{
+				font-size: 12px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<div class="header">
+				<a href="#menu" class="contacts"></a><span>赫尔斯训练管理系统</span>
+			</div>
+	<ul data-role="listview">
+		
+		<!--/div-->	
+			<h4>销售信息</h4>
+				<ul data-role="listview">
+				<li data-icon="edit"><a href="#"></a></li>	
+				<li>
+				<div class="field">
+					<div class="label">销售时间：</div>
+					<div class="label">2016-05-04</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">课程开始时间：</div>
+					<div class="label">2016-05-04</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">课程结束时间：</div>
+					<div class="label">2016-08-04</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">单课价格:</div>
+					<div class="label">260</div>
+					<div class="label">元</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">售课数量:</div>
+					<div class="label">36</div>
+					<div class="label">节</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">售课总价:</div>
+					<div class="label">360</div>
+					<div class="label">元</div>
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">课程类型:</div>
+					<div class="label">一对一私教</div>
+					</div>
+				</li>
+				<h4>客户信息</h4>
+				<li><a href="test.html">  
+					<h2>总计购买次数：3</h2>
+					<p><b>总上课数：36</b></p>
+					<p>剩余课程数：36</p>
+					</a> 
+				
+			
+	 
+	  </li>
+	  <li>
+	  <a href="userInfo.html" rel="external">   
+				<h2>教练：何</h2>
+				<br>
+					<p>
+						<b>一对一私教课程</b>
+					</p>
+					<p>目标：增肌塑行</p>
+					<p class="ui-li-aside">Re: Appointment</p>
+				</a>
+				</li>
+	  
+				</ul>
+
+			</div>
+			
+			<nav id="menu">
+				<ul>
+					<li><span>客户管理</span>
+						<ul>
+							<li><span>客户信息</span>
+					
+								<ul id="contacts-friends">
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Alan<br />
+							<small>Thompson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Anne<br />
+							<small>Cook</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Carolyn<br />
+							<small>Garcia</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Charles<br />
+							<small>Walker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Cheryl<br />
+							<small>Rivera</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Harry<br />
+							<small>Stewart</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Janet<br />
+							<small>Clark</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Jeffrey<br />
+							<small>White</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Jeremy<br />
+							<small>Green</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Judith<br />
+							<small>Wright</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Karen<br />
+							<small>Mitchell</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Marie<br />
+							<small>Hill</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Martin<br />
+							<small>Parker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Mary<br />
+							<small>Watson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Roy<br />
+							<small>Collins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Sean<br />
+							<small>Jenkins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Shirley<br />
+							<small>Bailey</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Susan<br />
+							<small>James</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Virginia<br />
+							<small>Griffin</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Willie<br />
+							<small>Bennett</small>
+						</a>
+					</li>
+				</ul>
+				</li>
+							<li><a href="#about/team"><span>添加新客户</span></a></li>
+							<li><a href="#about/address"><span>更新客户信息</span></a></li>
+						</ul>
+					</li>
+					<li><span>销售管理</span></a>
+						<ul>
+							<li><a href="#about/history">销售记录</a></li>
+							<li><a href="#about/team">新增销售信息</a></li>
+						</ul>
+					</li>
+					<li><span>上课管理</span></a>
+						<ul>
+							<li><a href="#about/history">签课记录</a></li>
+							<li><a href="#about/team">签课</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

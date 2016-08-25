@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>赫尔斯训练管理系统</title>
+		
+		 <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.js"></script>
+		
+		  <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		 <script type="text/javascript" src="../../dist/js/jquery.mmenu.all.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="../../dist/css/jquery.mmenu.all.css" />
+		
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+		<link type="text/css" rel="stylesheet" href="../css/demo.css" />
+		
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+		extensions 	: [  "pageshadow", "theme-dark"],
+	
+		dividers		: {
+			add				: true,
+			addTo			: "[id*='contacts-']",
+			fixed			: true
+		},
+		searchfield		: {
+			resultsPanel	: true
+		},
+		sectionIndexer	: {
+			add				: true,
+			addTo			: "[id*='contacts-']"
+		},
+		navbar			: {
+			title : ""
+		},
+		navbars		: [{
+			"position": "top",
+			 content : ["searchfield"]
+		},
+		{
+               "position": "top"
+        },
+		{
+               "position": "bottom",
+               "content": [
+                  "<a class='fa fa-envelope' href='#/'></a>",
+                  "<a class='fa fa-twitter' href='#/'></a>",
+                  "<a class='fa fa-facebook' href='#/'></a>"
+               ]
+         }
+		]
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							alert( "Thank you for clicking, but that's a demo link." );
+							return false;
+						}
+					);
+			});
+		</script>
+		 
+		<style type="text/css">
+			.mm-menu li.img:after
+			{
+				left: 75px !important;
+			}
+			.mm-menu li.img a
+			{
+				font-size: 16px;
+			}
+			.mm-menu li.img a img
+			{
+				float: left;
+				margin: -5px 10px -5px -5px;
+				border-radius: 100px;
+			}
+			.mm-menu li.img a small
+			{
+				font-size: 12px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<div class="header">
+				<a href="#menu" class="contacts"></a><span>赫尔斯训练管理系统</span>
+			</div>
+	<ul data-role="listview">
+		
+		<!--/div-->	
+			<h4>体侧信息</h4>
+				<ul data-role="listview">
+				<li><a href="#" data-icon="edit"></a></li>				
+				<li>
+				<div class="field">
+					<div class="label">会员姓名</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="会员姓名" value="" id="username" data-clear-btn="true">
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">年龄</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="年龄" value="" id="username" data-clear-btn="true">
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">电话</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="电话" value="" id="username" data-clear-btn="true">
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">手机</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="手机" value="" id="username" data-clear-btn="true">
+				</div>
+				</li>
+				<li>
+				<div class="field">
+					<div class="label">联系地址</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="联系地址" value="" id="username" data-clear-btn="true">
+				</div>
+				</li>
+				
+				<div data-role="collapsible" data-collapsed="false">
+				<h4>基础信息</h4>
+				<ul data-role="listview">
+				<li>
+					<div class="field">
+					<div class="label">日期时间</div>
+					<input type="date" name = "birthday" placeholder="日期时间" value="" id="birthday" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">时间</div>
+					<div class="label">19:00</div>
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">身高（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="身高（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">体重（KG）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="体重（KG）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">静态心率（r/m）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="静态心率（r/m）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">血压（mmHg）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="血压（mmHg）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				</ul>
+				</div>
+				
+				<div data-role="collapsible" data-collapsed="false">
+				<h4>维度</h4>
+				<ul data-role="listview">
+				<li>
+					<div class="field">
+					<div class="label">颈（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="颈（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">肩（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="肩（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">胸（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="胸（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">上臂（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="上臂（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">小臂（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="小臂（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">腰（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="腰（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">臀（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="臀（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">大腿（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="大腿（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">小腿（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="小腿（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				</ul>
+				</div>
+				
+				<div data-role="collapsible" data-collapsed="false">
+				<h4>脂肪含量</h4>
+				<ul data-role="listview">
+				<li>
+					<div class="field">
+					<div class="label">胸（mm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="胸（mm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">三头肌（mm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="三头肌（mm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">腹（mm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="腹（mm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">大腿（mm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="大腿（mm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">脂肪百分比（%）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="脂肪百分比（%）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">BMI</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="BMI" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				</ul>
+				</div>
+				
+				<div data-role="collapsible"  data-collapsed="false">
+				<h4>心肺耐力 肌肉力量</h4>
+				<ul data-role="listview">
+				<li>
+					<div class="field">
+					<div class="label">三分钟台阶</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="三分钟台阶" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">俯/跪卧撑</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="俯/跪卧撑" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">卷腹</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="卷腹" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">坐位体前屈（cm）</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="坐位体前屈（cm）" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">闭目单足立</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="闭目单足立" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				</ul>
+				</div>
+	  
+				<div data-role="collapsible" data-collapsed="false">
+				<h4>身体姿势</h4>
+				<ul data-role="listview">
+				<li>
+					<div class="field">
+					<div class="label">脊弯测量</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="脊弯测量" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				<li>
+					<div class="field">
+					<div class="label">腿型测量</div>
+					<input type="text" class="input-required" name="TPL_username" placeholder="腿型测量" value="" id="username" data-clear-btn="true">
+					</div> 
+				</li>
+				</ul>
+				</div>
+	  
+				</ul>
+
+			</div>
+			
+			<nav id="menu">
+				<ul>
+					<li><span>客户管理</span>
+						<ul id="contacts-friends">
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Alan<br />
+							<small>Thompson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Anne<br />
+							<small>Cook</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Carolyn<br />
+							<small>Garcia</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Charles<br />
+							<small>Walker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Cheryl<br />
+							<small>Rivera</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Harry<br />
+							<small>Stewart</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Janet<br />
+							<small>Clark</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Jeffrey<br />
+							<small>White</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Jeremy<br />
+							<small>Green</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Judith<br />
+							<small>Wright</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Karen<br />
+							<small>Mitchell</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Marie<br />
+							<small>Hill</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Martin<br />
+							<small>Parker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Mary<br />
+							<small>Watson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Roy<br />
+							<small>Collins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Sean<br />
+							<small>Jenkins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Shirley<br />
+							<small>Bailey</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Susan<br />
+							<small>James</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Virginia<br />
+							<small>Griffin</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Willie<br />
+							<small>Bennett</small>
+						</a>
+					</li>
+				</ul>
+				</li>
+							<li><a href="#about/team"><span>添加新客户</span></a></li>
+							<li><a href="#about/address"><span>更新客户信息</span></a></li>
+						</ul>
+					</li>
+					<li><span>销售管理</span></a>
+						<ul>
+							<li><a href="#about/history">销售记录</a></li>
+							<li><a href="#about/team">新增销售信息</a></li>
+						</ul>
+					</li>
+					<li><span>上课管理</span></a>
+						<ul>
+							<li><a href="#about/history">签课记录</a></li>
+							<li><a href="#about/team">签课</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>
