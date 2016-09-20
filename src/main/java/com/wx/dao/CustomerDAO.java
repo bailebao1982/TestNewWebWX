@@ -6,6 +6,7 @@
 package com.wx.dao;
 
 import com.wx.entity.Customer;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,7 @@ public interface CustomerDAO {
     boolean removeCustomer(Customer customer);
 
     Customer updateCustomer(Customer customer);
+    
+    List<Customer> getAllCustomers();
     
 }

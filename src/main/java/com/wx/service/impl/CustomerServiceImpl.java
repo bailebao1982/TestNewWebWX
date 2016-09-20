@@ -17,6 +17,7 @@ import com.wx.entity.SalesRecord;
 import com.wx.service.CustomerService;
 import com.wx.util.QyWxURLUtil;
 import com.wx.util.WXMsgUtil;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ public class CustomerServiceImpl implements CustomerService{
        CustomerMsgBase msg = new CustomerMsgBase();
        
        msg.setName(customer.getName());
+      /**
        msg.setDepartment(customer.getDepartment());
        msg.setEmail(customer.getEmail());
        msg.setGender(customer.getGender());
@@ -43,10 +45,10 @@ public class CustomerServiceImpl implements CustomerService{
        msg.setPosition(customer.getUserid());
        msg.setUserid(customer.getUserid());
        msg.setWeixinid(customer.getWeixinid());
+       **/
        
        
-       
-       AccessTokenReturnMessage returnMsg = WXMsgUtil.sendMessage(msg,QyWxURLUtil.getCreateUserURL());
+      /* AccessTokenReturnMessage returnMsg = WXMsgUtil.sendMessage(msg,QyWxURLUtil.getCreateUserURL());
        
        if(("0".equals(returnMsg.getErrcode()))&&("created".equals(returnMsg.getErrmsg()))){
             Customer newCustomer =  customerDAO.addCustomer(customer);
@@ -54,11 +56,14 @@ public class CustomerServiceImpl implements CustomerService{
        }else{
            return false;
        }
+        */
+      
+      return false;
     }
 
     @Override
     public boolean removeCustomer(Customer customer) {
-       CustomerMsgBase msg = new CustomerMsgBase();
+       /**CustomerMsgBase msg = new CustomerMsgBase();
        msg.setName(customer.getName());
        AccessTokenReturnMessage returnMsg = WXMsgUtil.sendMessage(msg,QyWxURLUtil.getDeleteUserURL());
        
@@ -67,14 +72,28 @@ public class CustomerServiceImpl implements CustomerService{
            return customerDAO.removeCustomer(customer);
        }else{
            return false;
-       }
+       }**/
+       
+       return false;
     }
 
     @Override
     public List<Customer> getAllCustomer() {
+        Customer newCustomer = new Customer();
+        newCustomer.setAddress("suzhou");
+        newCustomer.setCoacherId("hehuihui");
+        newCustomer.setId("Shi.Yi.Ting");
+        newCustomer.setJob("work");
+        newCustomer.setMobile("150444044");
+        newCustomer.setName("ShiYiTing");
+        newCustomer.setType("type");
+        
+        List<Customer> newList = new ArrayList<Customer>();
+        newList.add(newCustomer);
         
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return newList;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -102,5 +121,31 @@ public class CustomerServiceImpl implements CustomerService{
     public boolean addOMSalesRecord(SalesRecord salRec, CustomerGroup cg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public CustomerDAO getCustomerDAO() {
+        return customerDAO;
+    }
+
+    public void setCustomerDAO(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
+
+    public SalesRecordDAO getSalesRecordDAO() {
+        return salesRecordDAO;
+    }
+
+    public void setSalesRecordDAO(SalesRecordDAO salesRecordDAO) {
+        this.salesRecordDAO = salesRecordDAO;
+    }
+
+    public CustomerGroupDAO getCustomerGroupDAO() {
+        return customerGroupDAO;
+    }
+
+    public void setCustomerGroupDAO(CustomerGroupDAO customerGroupDAO) {
+        this.customerGroupDAO = customerGroupDAO;
+    }
+    
+    
     
 }

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="www.frebsite.nl" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>赫尔斯训练管理系统</title>
+
+		<link type="text/css" rel="stylesheet" href="../css/demo.css" />
+		<link type="text/css" rel="stylesheet" href="../../dist/css/jquery.mmenu.all.css" />
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+				 <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<style type="text/css">
+			.mm-menu li.img:after
+			{
+				left: 75px !important;
+			}
+			.mm-menu li.img a
+			{
+				font-size: 16px;
+			}
+			.mm-menu li.img a img
+			{
+				float: left;
+				margin: -5px 10px -5px -5px;
+				border-radius: 100px;
+			}
+			.mm-menu li.img a small
+			{
+				font-size: 12px;
+			}
+		</style>
+		<script type="text/javascript" src="../../dist/js/jquery.mmenu.all.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+		extensions 	: [  "pageshadow", "theme-dark"],
+	
+		dividers		: {
+			add				: true,
+			addTo			: "[id*='contacts-']",
+			fixed			: true
+		},
+		searchfield		: {
+			resultsPanel	: true
+		},
+		sectionIndexer	: {
+			add				: true,
+			addTo			: "[id*='contacts-']"
+		},
+		navbar			: {
+			title : ""
+		},
+		navbars		: [{
+			"position": "top",
+			 content : ["searchfield"]
+		},
+		{
+               "position": "top"
+        },
+		{
+               "position": "bottom",
+               "content": [
+                  "<a class='fa fa-envelope' href='#/'></a>",
+                  "<a class='fa fa-twitter' href='#/'></a>",
+                  "<a class='fa fa-facebook' href='#/'></a>"
+               ]
+         }
+		]
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							alert( "Thank you for clicking, but that's a demo link." );
+							return false;
+						}
+					);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page">
+			<div class="header">
+				<a href="#menu" class="contacts"></a><span>赫尔斯训练管理系统 添加新客户</span>
+			</div>
+			<div>
+			
+			 <form action="" class="mlogin" name="userForm">
+				<ul data-role="listview">
+			
+				<li data-role="list-divider">必填信息</li>
+				<div class="field autoClear">
+					<div class="label">姓名:</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="会员名" value="" id="username" data-clear-btn="true">
+				</div>
+				</div>
+				<div class="field autoClear">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+					<div class="label">性别:</div>
+					<label for="male1">男</label>
+					<input type="radio" name="gender" id="male1" value="male">
+					<label for="female1">女</label>
+					<input type="radio" name="gender" id="female1" value="female"> 
+				</fieldset>
+				
+				</div>
+ 
+				<li data-role="list-divider">三选一信息</li>
+				<div class="field autoClear">
+					<div class="label">手机:</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="会员手机号码" value="" id="mobile" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<div class="field autoClear">
+					<div class="label">微信id：</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="会员微信id" value="" id="wxid" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<div class="field autoClear">
+					<div class="label">Email：</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="Email Address" value="" id="email" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<li data-role="list-divider">选填信息</li>
+				
+				<div class="field autoClear">
+					<div class="label">生日：</div>
+					<div class="field-control">
+					<input type="date" name = "birthday" placeholder="会员生日" value="" id="birthday" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<div class="field autoClear">
+					<div class="label">家庭住址：</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="家庭住址" value="" id="homeaddress" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<div class="field autoClear">
+					<div class="label">职业：</div>
+					<div class="field-control">
+					<input type="text" class="input-required" name="TPL_username" placeholder="工作内容" value="" id="work" data-clear-btn="true">
+				</div>
+				</div>
+				
+				<div class="field autoClear">
+					<div class="label">部门：</div>
+					<select name="department" id="department">
+								<option value="mon">教练</option>
+								<option value="tue">会员</option>
+							</select>
+				</div>
+				
+				</ul>
+
+				 <div data-role="main" class="ui-content">
+					<input type="submit" data-inline="true" class="ui-btn ui-btn-inline ui-shadow" value="添加">
+					<input type="submit" data-inline="true" class="ui-btn ui-btn-inline ui-shadow" value="添加并增加销售记录">
+				 </div>	
+        	</form>		
+			</div>
+			
+			<nav id="menu">
+				<ul>
+					<li><span>客户管理</span>
+						<ul id="contacts-friends">
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Alan<br />
+							<small>Thompson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Anne<br />
+							<small>Cook</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Carolyn<br />
+							<small>Garcia</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Charles<br />
+							<small>Walker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Cheryl<br />
+							<small>Rivera</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Harry<br />
+							<small>Stewart</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Janet<br />
+							<small>Clark</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Jeffrey<br />
+							<small>White</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Jeremy<br />
+							<small>Green</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Judith<br />
+							<small>Wright</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/1/" />
+							Karen<br />
+							<small>Mitchell</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/2/" />
+							Marie<br />
+							<small>Hill</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/3/" />
+							Martin<br />
+							<small>Parker</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/4/" />
+							Mary<br />
+							<small>Watson</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/5/" />
+							Roy<br />
+							<small>Collins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/6/" />
+							Sean<br />
+							<small>Jenkins</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/7/" />
+							Shirley<br />
+							<small>Bailey</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/8/" />
+							Susan<br />
+							<small>James</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/9/" />
+							Virginia<br />
+							<small>Griffin</small>
+						</a>
+					</li>
+					<li class="img">
+						<a href="../customer/userInfo.html" rel="external">
+							<img src="http://lorempixel.com/50/50/people/10/" />
+							Willie<br />
+							<small>Bennett</small>
+						</a>
+					</li>
+				</ul>
+				</li>
+							<li><a href="#about/team"><span>添加新客户</span></a></li>
+							<li><a href="#about/address"><span>更新客户信息</span></a></li>
+						</ul>
+					</li>
+					<li><span>销售管理</span></a>
+						<ul>
+							<li><a href="#about/history">销售记录</a></li>
+							<li><a href="#about/team">新增销售信息</a></li>
+						</ul>
+					</li>
+					<li><span>上课管理</span></a>
+						<ul>
+							<li><a href="#about/history">签课记录</a></li>
+							<li><a href="#about/team">签课</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

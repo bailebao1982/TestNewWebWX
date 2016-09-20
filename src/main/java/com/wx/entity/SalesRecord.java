@@ -5,6 +5,7 @@
  */
 package com.wx.entity;
 
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,37 @@ public class SalesRecord {
     
     @Column(length=32)
     private String ClassType;
+    
+    @Column
+    private Date SalesTime;
+    
 
+    
+     @Column
+     private Date StartDate;
+     
+     @Column
+     private int UnitPrice;
+
+    public Date getStartDate() {
+        return StartDate;
+    }
+
+    public void setStartDate(Date StartDate) {
+        this.StartDate = StartDate;
+    }
+
+
+    public int getUnitPrice() {
+        return UnitPrice;
+    }
+
+    public void setUnitPrice(int UnitPrice) {
+        this.UnitPrice = UnitPrice;
+    }
+     
+     
+     
     public String getId() {
         return id;
     }
@@ -76,6 +107,15 @@ public class SalesRecord {
     public void setClassType(String ClassType) {
         this.ClassType = ClassType;
     }
+
+    public Date getSalesTime() {
+        return SalesTime;
+    }
+
+    public void setSalesTime(Date SalesTime) {
+        this.SalesTime = SalesTime;
+    }
+
     
     
 }

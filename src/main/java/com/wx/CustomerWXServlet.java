@@ -150,7 +150,7 @@ public class CustomerWXServlet extends HttpServlet {
         String sCorpID = "wxe706b25abb1216c0";
         String sEncodingAESKey = "AWdjbue1y51jzlAMwBCSm9GDt7zW6zuIbNqGEPcqsRR";
         request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
+        //response.setCharacterEncoding("UTF-8");
         String msg_signature = request.getParameter("msg_signature");
         String timestamp = request.getParameter("timestamp");
         String nonce = request.getParameter("nonce");

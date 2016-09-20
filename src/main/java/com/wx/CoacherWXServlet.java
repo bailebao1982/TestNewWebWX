@@ -133,7 +133,7 @@ public class CoacherWXServlet extends HttpServlet {
         String sCorpID = "wxe706b25abb1216c0";
         String sEncodingAESKey = "R5zQRNXirEIQsSGL5Hs5ydZdSuu7EkRLWLViul1P7si";
         request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
+        //response.setCharacterEncoding("UTF-8");
         String msg_signature = request.getParameter("msg_signature");
         String timestamp = request.getParameter("timestamp");
         String nonce = request.getParameter("nonce");

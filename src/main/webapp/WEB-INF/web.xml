@@ -62,9 +62,9 @@
     <load-on-startup>1</load-on-startup>  
   </servlet> 
   <servlet-mapping>
-		<servlet-name>springMVC</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+         <url-pattern>/</url-pattern>
+  </servlet-mapping>
         
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -90,7 +90,7 @@
     <!-- 配置Session -->
     <filter>
         <filter-name>openSession</filter-name>
-        <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
         <init-param>
             <param-name>sessionFactoryBeanName</param-name>
             <param-value>sessionFactory</param-value>
@@ -100,5 +100,13 @@
         <filter-name>openSession</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--filter>
+        <filter-name>openSession</filter-name>
+        <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>openSession</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping-->
    
 </web-app>

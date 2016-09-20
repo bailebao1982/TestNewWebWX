@@ -73,4 +73,13 @@ public class CustomerDAOImpl implements CustomerDAO {
         return list.get(0);
     }
     
+    @Override
+    public List<Customer> getAllCustomers(){
+        String hql = "from Customer as customer"; 
+        Query query = session.createQuery(hql);
+        List<Customer> list = query.list();
+        return list;
+        
+    }
+    
 }

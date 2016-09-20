@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"  
-       xmlns:mvc="http://www.springframework.org/schema/mvc"  
-       xsi:schemaLocation="http://www.springframework.org/schema/beans   
-                           http://www.springframework.org/schema/beans/spring-beans.xsd  
-                           http://www.springframework.org/schema/context  
-                           http://www.springframework.org/schema/context/spring-context-3.2.xsd  
-                           http://www.springframework.org/schema/mvc  
-                           http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
-">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     
       <!-- 配置数据源 -->  
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
+    <!-- bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
         <property name="url" value="jdbc:mysql://120.24.58.237/HealthyCorporation"></property>  
         <property name="username" value="root"></property>  
         <property name="password" value="xDPgrPTuZ65D"></property>  
-    </bean>  
+    </bean -->
+    
+      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://localhost/healthycorporation"></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="zhuwei1982"></property>  
+    </bean>    
     
     <!-- 配置SessionFactory -->  
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <property name="hibernateProperties">  
             <props>  
@@ -67,6 +69,10 @@
         <property name="sessionFactory" ref="sessionFactory"></property>  
     </bean>
     
+     <bean id="bmDAO" class="com.wx.dao.impl.BmDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>
+    
     <bean id="salesRecordDAO" class="com.wx.dao.impl.SalesRecordDAOImpl">  
         <property name="sessionFactory" ref="sessionFactory"></property>  
     </bean>
@@ -81,12 +87,39 @@
         <property name="customerGroupDAO" ref="customerGroupDAO"></property>
     </bean>
     
+    <bean id="customerServiceBase" class="com.wx.service.impl.CustomerServiceImpl">
+        <property name="customerDAO" ref="customerDAO"></property>
+        <property name="salesRecordDAO" ref="salesRecordDAO"></property>
+        <property name="customerGroupDAO" ref="customerGroupDAO"></property>
+    </bean>
+    
+    <bean id="bmServiceBase" class="com.wx.service.impl.BMServiceImpl">
+        <property name="bmDAO" ref="bmDAO"></property>
+    </bean>
+    
+    <bean id="salesServiceBase" class="com.wx.service.impl.SalesServiceImpl">
+        <property name="salesRecordDAO" ref="salesRecordDAO"></property>
+    </bean>         
+    
+    
     <bean id="classService" parent="transactionProxy">  
         <property name="target" ref="classServiceBase"></property>
     </bean>
     
+     <bean id="customerService" parent="transactionProxy">  
+        <property name="target" ref="customerServiceBase"></property>
+    </bean>
+    
+    <bean id="bmService" parent="transactionProxy">  
+        <property name="target" ref="bmServiceBase"></property>
+    </bean>
+    
+    <bean id="salesService" parent="transactionProxy">  
+        <property name="target" ref="salesServiceBase"></property>
+    </bean>
+    
       <!-- 配置一个事务管理器 -->  
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">  
         <property name="sessionFactory" ref="sessionFactory"/>  
     </bean>  
       

@@ -31,18 +31,14 @@ public class SalesRecordDAOImpl implements SalesRecordDAO{
     }
 
     @Override
-    public SalesRecord findSalesRecordByCustomer(String customer) {
+    public List<SalesRecord> findSalesRecordByCustomer(String customer) {
          String hql = "from SalesRecord as salesRecord where salesRecord.Customer = :customer"; 
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         
         query.setString("customer", customer);
         List<SalesRecord> list = query.list();
         
-        if(list.size()>0){
-            return list.get(0);
-        }else{
-            return null;
-        }
+        return list;
     }
     
      @Override
@@ -63,4 +59,15 @@ public class SalesRecordDAOImpl implements SalesRecordDAO{
         public void addSalesRecord(String customerName,String classType,String coacherName,String unitPrice,Date salesDate,Date startDate,CustomerGroup customerGroup){
             
         }
+
+    @Override
+    public SalesRecord findSalesRecordById(String id) {
+        String hql = "from SalesRecord as saleRec where saleRec.id = :id"; 
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        
+        query.setString("id", id);
+        List<SalesRecord> list = query.list();
+        
+        return list.get(0);
+    }
 }
